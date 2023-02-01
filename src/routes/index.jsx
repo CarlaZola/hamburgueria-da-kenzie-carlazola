@@ -2,13 +2,15 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 
 
-function RoutesMain({setTheme}){
+function RoutesMain({setTheme, products}){
 
     return(
         <Routes>
             <Route path="/" element={ 
             < Dashboard 
             setTheme={setTheme}
+            products={products}
+
              /> 
             }/>
             {/* <Route path="*" element={ <NotFound/> }/> */}

@@ -1,12 +1,15 @@
-import  {FaMoon , FaSun}  from "react-icons/fa";
+
+import Header from "../../components/Header";
 import SectionProducts from "../../components/ProductList";
 import StyledDashboard from "./dashboard";
 
-function Dashboard({setTheme, products, addProductsInCart, removeProductsInCart, removeAllPrductsSame}){
+function Dashboard({theme, setTheme, products, addProductsInCart, removeProductsInCart, removeAllPrductsSame}){
     return(
         <StyledDashboard>
-            <FaMoon onClick={() => setTheme("dark")}/>
-            <FaSun color="var(--color-grey-20)" onClick={() => setTheme("ligth")}/>
+            <Header
+             setTheme={setTheme}
+             theme={theme}
+            />
 
             <SectionProducts
              products={products}

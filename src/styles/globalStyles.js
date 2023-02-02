@@ -21,7 +21,7 @@ const Global = createGlobalStyle`
         --font2: .75rem; 
     }
 
-    body, ul, li, a, img, p, h1, h2, h3, h4, h5, span, div, section{
+    body, ul, li, a, img, p, h1, h2, h3, h4, h5, span, div, section, header, nav{
         box-sizing: border-box;
         margin: 0;
         padding: 0;

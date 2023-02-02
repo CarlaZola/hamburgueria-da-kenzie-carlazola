@@ -4,6 +4,7 @@ import api from "./services/api"
 import { ThemeProvider } from 'styled-components';
 import { ThemeLigth, ThemeDark } from "./styles/theme";
 import Global from "./styles/globalStyles";
+
 // import MaskGroup from "./assets/MaskGroup.svg";
 // import MaskGroupDark from "./assets/MaskGroupDark.svg";
 
@@ -16,6 +17,7 @@ function App() {
   const [currentSale, setCurrentSale] = useState(productsInLocal ? JSON.parse(productsInLocal) : [])
   const [theme, setTheme] = useState(themePreference ? themePreference : "ligth")
   const [loading, setLoading] = useState(false)
+  const [cart, setCart] = useState(false)
 
   useEffect(() =>{
     setLoading(true)
@@ -87,6 +89,7 @@ function App() {
           addProductsInCart={addProductsInCart}
           removeProductsInCart={removeProductsInCart}
           removeAllPrductsSame={removeAllPrductsSame}
+          theme={theme}
           />       
       </ThemeProvider>
     </>

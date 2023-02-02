@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 
 
-function RoutesMain({setTheme, products}){
+function RoutesMain({setTheme, products, addProductsInCart, removeProductsInCart, removeAllPrductsSame}){
 
     return(
         <Routes>
@@ -10,7 +10,9 @@ function RoutesMain({setTheme, products}){
             < Dashboard 
             setTheme={setTheme}
             products={products}
-
+            addProductsInCart={addProductsInCart}
+            removeProductsInCart={removeProductsInCart}
+            removeAllPrductsSame={removeAllPrductsSame}
              /> 
             }/>
             {/* <Route path="*" element={ <NotFound/> }/> */}

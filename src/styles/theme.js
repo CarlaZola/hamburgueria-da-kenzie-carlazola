@@ -16,7 +16,7 @@ export const ThemeLigth = {
 
 export const ThemeDark ={
     colors: {
-        colorGrey100: "##F5F5F5",
+        colorGrey100: "#F5F5F5",
         colorGrey50: "##E0E0E0",
         colorGrey20: "#828282",
         colorGrey0: "#333333",

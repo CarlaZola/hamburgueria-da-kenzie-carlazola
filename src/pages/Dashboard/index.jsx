@@ -5,11 +5,13 @@ import StyledDashboard from "./dashboard";
 
 function Dashboard({theme, setTheme, products, addProductsInCart, removeProductsInCart, removeAllPrductsSame}){
     return(
+     <>
+        <Header
+            setTheme={setTheme}
+            theme={theme}
+        />
         <StyledDashboard>
-            <Header
-             setTheme={setTheme}
-             theme={theme}
-            />
+          
 
             <SectionProducts
              products={products}
@@ -18,7 +20,10 @@ function Dashboard({theme, setTheme, products, addProductsInCart, removeProducts
              removeAllPrductsSame={removeAllPrductsSame}
              />
         </StyledDashboard>
+     </>
     )
 }
+
+    
 
 export default Dashboard

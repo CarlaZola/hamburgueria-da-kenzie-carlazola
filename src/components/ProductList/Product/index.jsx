@@ -1,10 +1,10 @@
 import StyledCardProduct from "./cardProduct"
-
+// import { GrFormSubtract, GrFormAdd } from "react-icons/gr"
 
 function CardProduct({product, addProductsInCart, removeProductsInCart, removeAllPrductsSame}){
     return(
         <StyledCardProduct>
-            <div>
+            <div className="content_img">
                 <img src={product.img} alt={product.name}/>
             </div>
             <div className="content">
@@ -12,11 +12,9 @@ function CardProduct({product, addProductsInCart, removeProductsInCart, removeAl
                 <span>{product.category}</span>
                 <p>{product.price}</p>
                 <button type="button" onClick={() => addProductsInCart(product)}>Adicionar</button>
-                <button type="Remover" onClick={() => removeAllPrductsSame(product)}>Remover</button>
-                <button type="TirarUm" onClick={() => removeProductsInCart(product)}>Remover um item</button>
             </div>
         </StyledCardProduct>
     )
-}
+}   
 
 export default CardProduct

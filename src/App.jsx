@@ -19,11 +19,25 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [cart, setCart] = useState(false)
 
+
+
   useEffect(() =>{
     setLoading(true)
     async function getProdcuts(){
       try {
         const response = await api.get("/products")
+
+        const responseIfQuantities = response.data.map((item) => {
+          const filterAddItem = JSON.parse(productsInLocal)?.filter((product) => product.id === item.id)[0]
+          if(filterAddItem){
+            console.log(filterAddItem)
+            return {...filterAddItem, quantities : Number(filterAddItem.quantities)}
+          }
+          else{
+            return {...item, quantities: 0}
+          }
+        })
+        console.log(responseIfQuantities)
         setProducts(response.data)
 
       } catch (error) {
@@ -35,26 +49,35 @@ function App() {
     }
     getProdcuts()
   }, [])
+  
+  console.log(currentSale)
 
-  useEffect(() => {
-    localStorage.setItem("@products", JSON.stringify(currentSale))
-  }, [currentSale])
+  // useEffect(() => {
+  //   return 
+  // }, [])
   
   useEffect(() => {
     localStorage.setItem("@themePreference", JSON.stringify(theme))
   }, [theme])
 
   function addProductsInCart(product){
-      if(!currentSale.some((currentProduct) => currentProduct.id === product.id)){
-          product.quantities = 1
-          setCurrentSale([...currentSale, product])
+  
+      if(!currentSale.some((currentProduct) => currentProduct.id === product.id)){  
+        product.quantities = 1
+        setCurrentSale([...currentSale, product])    
+        localStorage.setItem("@products", JSON.stringify(currentSale))    
       }
-      else{
-          product.quantities = product.quantities + 1
+      else{      
+          product.quantities++
           setCurrentSale([...currentSale])
+          localStorage.setItem("@products", JSON.stringify(currentSale))
+         
       }
   }
-
+  // console.log(productsInLocal)
+  // console.log(JSON.parse(productsInLocal))
+  // console.log(currentSale)
+  
   function removeProductsInCart(product){
       if(product.quantities > 1){
         if(currentSale.some((currentProduct) => currentProduct.id === product.id)){
@@ -74,11 +97,21 @@ function App() {
       setCurrentSale([...newCurrentSale])
   }
 
+  // function sumOfAmounts(){
+  //   const newCurrent = [...currentSale]
+  //   const quantitiesInCart = newCurrent.map((sale) => sale.quantities)
+  //   console.log(quantitiesInCart)
+  // }
+  
+  // sumOfAmounts()
+
   function clearCart(){
       return setCurrentSale([])
   }
 
-  console.log(currentSale)
+  // function getProductBySearch(letters){
+  //   return 
+  // } 
   return (
     <>
       <Global/>

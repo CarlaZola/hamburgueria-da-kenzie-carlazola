@@ -2,7 +2,7 @@ import CardProduct from "./Product"
 
 
 function SectionProducts({products, addProductsInCart, removeProductsInCart, removeAllPrductsSame}){
-   
+//    console.log(products)
     return(
         <section>
             <ul>

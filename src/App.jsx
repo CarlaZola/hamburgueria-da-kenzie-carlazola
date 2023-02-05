@@ -5,18 +5,28 @@ import { ThemeProvider } from 'styled-components';
 import { ThemeLigth, ThemeDark } from './styles/theme';
 import Global from './styles/globalStyles';
 
-// import MaskGroup from "./assets/MaskGroup.svg";
-// import MaskGroupDark from "./assets/MaskGroupDark.svg";
 
 const themePreference = JSON.parse(localStorage.getItem('@themePreference'));
 const productsInLocal = localStorage.getItem('@products');
 
+
 function App() {
+  	const openOrClose = JSON.parse(localStorage.getItem("@openAndClose"))
+
 	const [products, setProducts] = useState([]);
 	const [currentSale, setCurrentSale] = useState(productsInLocal ? JSON.parse(productsInLocal) : []);
 	const [theme, setTheme] = useState(themePreference ? themePreference : 'ligth');
 	const [loading, setLoading] = useState(false);
-	const [cart, setCart] = useState(false);
+	const [cart, setCart] = useState(openOrClose ? openOrClose : "fechado");
+	const [filteredItems, setFilteredItems] = useState("Todos")
+	const [search, setSearch] = useState(false);
+
+
+	const categories = [
+		"Sanduíches", 
+		"Bebidas",
+		"Doces"
+	]
 
 	useEffect(() => {
 		setLoading(true);
@@ -46,18 +56,18 @@ function App() {
 		getProdcuts();
 	}, []);
 
-	// console.log(currentSale);
-
-	useEffect(() => {
-		// console.log('currentSale', currentSale);
-		localStorage.setItem('@products', JSON.stringify(currentSale));
+	useEffect(() => {		
+		localStorage.setItem("@products", JSON.stringify(currentSale));
 	}, [currentSale]);
 
 	useEffect(() => {
-		localStorage.setItem('@themePreference', JSON.stringify(theme));
+		localStorage.setItem("@themePreference", JSON.stringify(theme));
 	}, [theme]);
 
-	// console.log(products);
+  	useEffect(() => {
+      localStorage.setItem("@openAndClose", JSON.stringify(cart));
+  	}, [cart])
+
 
 	function addProductsInCart(product) {
 		if (!currentSale.some((currentProduct) => currentProduct.id === product.id)) {
@@ -76,9 +86,6 @@ function App() {
 			setCurrentSale(response);
 		}
 	}
-	// console.log(productsInLocal)
-	// console.log(JSON.parse(productsInLocal))
-	// console.log(currentSale)
 
 	function removeProductsInCart(product) {
 		if (product.quantities > 1) {
@@ -97,25 +104,38 @@ function App() {
 		setCurrentSale([...newCurrentSale]);
 	}
 
-	// function sumOfAmounts(){
-	//   const newCurrent = [...currentSale]
-	//   const quantitiesInCart = newCurrent.map((sale) => sale.quantities)
-	//   console.log(quantitiesInCart)
-	// }
+	function sumOfAmounts(){
+	  const newCurrent = [...currentSale]
+	  const quantitiesInCart = newCurrent.map((sale) => sale.quantities)
+    .reduce((acummulador, currentValue) => acummulador + currentValue, 0)
+    return quantitiesInCart
+	}
 
-	// sumOfAmounts()
+	sumOfAmounts()
 
 	function clearCart() {
 		return setCurrentSale([]);
 	}
 
-	// function getProductBySearch(letters){
-	//   return
-	// }
+	const selectedItems = products
+	.filter((item) => filteredItems === "Todos" ? item : item.category === filteredItems || item.name.trim().toLowerCase().includes(filteredItems) || item.category.normalize('NFD').replace(/[\u0300-\u036f]/g, "").trim().toLowerCase().includes(filteredItems))
+	
+	const totalCart = currentSale.reduce((acummulador, currentValue) =>  acummulador + (currentValue.price * currentValue.quantities), 0)
+	const totalItemsInCart = currentSale.reduce((acummulador, currentValue) =>  acummulador + currentValue.quantities,  0)
+
+	function itemTotal(item){
+		const totalValue = currentSale.filter((sale) => sale.id === item.id)
+		.reduce((acummulador, currentValue) => {
+			return acummulador = (currentValue.price * currentValue.quantities)
+		 }, 0)  
+		 
+		return totalValue
+	}
+
 	return (
-		<>
-			<Global />
+		<>		
 			<ThemeProvider theme={theme === 'ligth' ? ThemeLigth : ThemeDark}>
+        	<Global />
 				<RoutesMain
 					setTheme={setTheme}
 					products={products}
@@ -123,6 +143,16 @@ function App() {
 					removeProductsInCart={removeProductsInCart}
 					removeAllPrductsSame={removeAllPrductsSame}
 					theme={theme}
+					setCart={setCart}
+					cart={cart}
+					currentSale={currentSale}
+					setFilteredItems={setFilteredItems}
+					selectedItems={selectedItems}
+					setSearch={setSearch}
+					search={search}
+					itemTotal={itemTotal}
+					totalCart={totalCart}
+					totalItemsInCart={totalItemsInCart}
 				/>
 			</ThemeProvider>
 		</>

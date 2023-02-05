@@ -1,23 +1,31 @@
 import CardProduct from "./Product"
+import StyledSectionProducts from "./productList"
 
 
-function SectionProducts({products, addProductsInCart, removeProductsInCart, removeAllPrductsSame}){
-//    console.log(products)
+function SectionProducts({products, addProductsInCart, selectedItems}){
+  
     return(
-        <section>
-            <ul>
+        <StyledSectionProducts>
+            <ul className="list">
                 {
-                    products.map((product) => 
-                    (<CardProduct
-                        key={product.id} 
-                        product={product}
-                        addProductsInCart={addProductsInCart} 
-                        removeProductsInCart={removeProductsInCart}
-                        removeAllPrductsSame={removeAllPrductsSame}
-                        />))
+                    selectedItems.length === 0 ? (
+                        <h3>
+                            Produtos indisponíveis no momento :( 
+                        </h3>
+                    ) : (
+                       
+                         selectedItems.map((product) => 
+                        (<CardProduct
+                                key={product.id} 
+                                product={product}
+                                addProductsInCart={addProductsInCart} 
+                                />))
+                        
+                    )
+                 
                 }
             </ul>
-        </section>
+        </StyledSectionProducts>
     )
 }
 

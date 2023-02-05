@@ -19,13 +19,20 @@ const Global = createGlobalStyle`
         --fontDefault: 1rem;
         --font1: .875rem;
         --font2: .75rem; 
+        --font3: .625rem;
     }
 
-    body, ul, li, a, img, p, h1, h2, h3, h4, h5, span, div, section, header, nav{
+    *{
         box-sizing: border-box;
         margin: 0;
         padding: 0;
         font-family: 'Inter', sans-serif;
+        list-style: none;
+    }
+
+    body{
+        min-height:100vh;
+        background-color: ${({theme}) => theme.colors.colorGrey0};
     }
 
 `

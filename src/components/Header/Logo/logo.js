@@ -11,7 +11,7 @@ const StyledLogo = styled.h1`
         margin-left: .125rem;
         font-size: var(--title4);
         letter-spacing: 0;
-        color: var(--color-secundary);
+        color: ${({theme}) => theme.colors.colorPrimary200};
     }
 
 `

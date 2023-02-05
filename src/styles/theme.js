@@ -2,7 +2,8 @@
 export const ThemeLigth = {
     colors: {
         colorPrimary: "#27AE60",
-        colorPrimary100: "#2cc36b",
+        colorPrimary200: "#2cc36b",
+        colorPrimary100: "#30e57d",
         colorPrimary50: "#93D7AF",
         colorSecundary:"#EB5757",
         colorGrey100: "#212529",
@@ -20,6 +21,11 @@ export const ThemeLigth = {
 
 export const ThemeDark ={
     colors: {
+        
+        colorPrimary: "#2cc36b",
+        colorPrimary200: "#30e57d",
+        colorPrimary100: "#27AE60",       
+        colorPrimary50: "#93D7AF",
         colorGrey100: "#F5F5F5",
         colorGrey50: "#dfe2e5",        
         colorGrey20: "#E9ECEF",

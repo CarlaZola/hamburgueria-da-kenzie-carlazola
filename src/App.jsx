@@ -118,7 +118,7 @@ function App() {
 	}
 
 	const selectedItems = products
-	.filter((item) => filteredItems === "Todos" ? item : item.category === filteredItems || item.name.trim().toLowerCase().includes(filteredItems) || item.category.normalize('NFD').replace(/[\u0300-\u036f]/g, "").trim().toLowerCase().includes(filteredItems))
+	.filter((item) => filteredItems === "Todos" ? item : item.category === filteredItems || item.name.trim().toLowerCase().includes(filteredItems.toLowerCase()) || item.category.normalize('NFD').replace(/[\u0300-\u036f]/g, "").trim().toLowerCase().includes(filteredItems))
 	
 	const totalCart = currentSale.reduce((acummulador, currentValue) =>  acummulador + (currentValue.price * currentValue.quantities), 0)
 	const totalItemsInCart = currentSale.reduce((acummulador, currentValue) =>  acummulador + currentValue.quantities,  0)

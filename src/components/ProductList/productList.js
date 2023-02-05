@@ -10,7 +10,8 @@ const StyledSectionProducts = styled.section`
         padding-right: 1rem;
         
         h3{
-            color: ${({theme}) => theme.colors.colorGrey100}
+            color: ${({theme}) => theme.colors.colorGrey100};
+            text-align: center;
         }
 
         ul{

@@ -1,18 +1,30 @@
 import StyledCartProduct from "./CartProduct"
 import {GrFormAdd, GrFormSubtract} from "react-icons/gr"
+import {FaTrashAlt} from "react-icons/fa"
+
+
 function ProductCart({sale, addProductsInCart, removeProductsInCart, itemTotal}){
     const value = itemTotal(sale)
     
     return (
         <StyledCartProduct>
-            <p>{sale.name}</p>
-            <p>{sale.quantities}</p>
-
-            <p>{value.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</p>
-
-            <GrFormAdd onClick={() => addProductsInCart(sale)}/>
-
-            <GrFormSubtract onClick={() => removeProductsInCart(sale)}/>
+           <div className="contentLeft">
+                <div>
+                    <img src={sale.img} alt="" className="imageProduct"/>
+                </div>
+                <div className="contentNameAndProdcut">
+                    <p className="nameProduct">{sale.name}</p>
+                    <p className="priceProduct">{value.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</p>
+                </div>
+           </div>
+            <div className="controlSale">
+                <div className="contentQuantitites">               
+                    <GrFormAdd onClick={() => addProductsInCart(sale)}/>
+                    <p>{sale.quantities}</p>
+                    <GrFormSubtract onClick={() => removeProductsInCart(sale)}/>
+                </div>
+                <p>Excluir</p>
+            </div>
         </StyledCartProduct>
     )
 }

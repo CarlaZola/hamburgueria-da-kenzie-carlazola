@@ -81,8 +81,6 @@ function App() {
 				}
 				return current;
 			});
-
-			console.log(response);
 			setCurrentSale(response);
 		}
 	}
@@ -103,15 +101,6 @@ function App() {
 		const newCurrentSale = currentSale.filter((currentProduct) => currentProduct.id !== product.id);
 		setCurrentSale([...newCurrentSale]);
 	}
-
-	function sumOfAmounts(){
-	  const newCurrent = [...currentSale]
-	  const quantitiesInCart = newCurrent.map((sale) => sale.quantities)
-    .reduce((acummulador, currentValue) => acummulador + currentValue, 0)
-    return quantitiesInCart
-	}
-
-	sumOfAmounts()
 
 	function clearCart() {
 		return setCurrentSale([]);

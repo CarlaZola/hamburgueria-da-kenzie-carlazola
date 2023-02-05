@@ -13,6 +13,7 @@ function Input({search, setSearch, setFilteredItems}){
     function submit(data){
         setFilteredItems(data.productSearch)
         reset()
+        setSearch(false)
     }
 
     const ref = useOutclick(() => {

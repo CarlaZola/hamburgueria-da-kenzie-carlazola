@@ -18,10 +18,15 @@ const StyledHeader = styled.header`
         gap: .875rem;
     }
 
+    .iconNav{
+        cursor: pointer;
+    }
+
     .cartTotal{
         position: relative;
         width: .9375rem;
         height:.9375rem;
+        cursor: pointer;
 
         span{
             width: .9375rem;

@@ -6,10 +6,10 @@ function Theme({theme, setTheme}){
         <>
             {
                 theme === "ligth" ? (
-                    <FaMoon onClick={() => setTheme("dark")}/>
+                    <FaMoon className="iconNav" onClick={() => setTheme("dark")}/>
                 )
                 :(
-                    <FaSun color="var(--color-grey-20)" onClick={() => setTheme("ligth")}/>
+                    <FaSun className="iconNav" color="var(--color-grey-20)" onClick={() => setTheme("ligth")}/>
                 )
             }          
         </>

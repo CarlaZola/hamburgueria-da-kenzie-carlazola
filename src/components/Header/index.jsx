@@ -17,27 +17,29 @@ function Header({theme, setTheme, setCart, setSearch, setFilteredItems, totalIte
                     <Theme
                     theme={theme}
                     setTheme={setTheme}
+
+                    
                     />
                     {
                         theme === "ligth" ? (
                         <>
-                            <div className="cartTotal">
+                            <div className="cartTotal iconNav" >
                                 <span>{totalItemsInCart}</span>
-                                <FaShoppingCart onClick={() => setCart("aberto")}/>
+                                <FaShoppingCart onClick={() => setCart("aberto")}  className="iconNav"/>
                             </div>
-                            <FaSearch  onClick={() => {
+                            <FaSearch className="iconNav"  onClick={() => {
                                 setSearch(true)
                                 setFilteredItems("Todos")
-
+                               
                             }}/>
                         </>
                     ) : (
                             <>
-                            <div className="cartTotal">
+                            <div className="cartTotal iconNav">
                                 <span>{totalItemsInCart}</span>
                                 <FaShoppingCart color="#f5f5f5" onClick={() => setCart("aberto")}/>
                             </div>                           
-                            <FaSearch color="#f5f5f5"  onClick={() => {
+                            <FaSearch className="iconNav" color="#f5f5f5"  onClick={() => {
                                 setSearch(true)
                                 setFilteredItems("Todos")
                                 }}/>

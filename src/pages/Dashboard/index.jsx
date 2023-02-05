@@ -38,6 +38,7 @@ function Dashboard({theme, setTheme, products, addProductsInCart, removeProducts
                             removeProductsInCart={removeProductsInCart}
                             itemTotal={itemTotal}
                             totalCart={totalCart}
+                            removeAllPrductsSame={removeAllPrductsSame}
                             />}
             <SectionProducts            
                 products={products}

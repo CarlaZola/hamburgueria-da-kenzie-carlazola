@@ -3,7 +3,7 @@ import {GrFormAdd, GrFormSubtract} from "react-icons/gr"
 import {FaTrashAlt} from "react-icons/fa"
 
 
-function ProductCart({sale, addProductsInCart, removeProductsInCart, itemTotal}){
+function ProductCart({sale, addProductsInCart, removeProductsInCart, itemTotal, removeAllPrductsSame}){
     const value = itemTotal(sale)
     
     return (
@@ -23,7 +23,7 @@ function ProductCart({sale, addProductsInCart, removeProductsInCart, itemTotal})
                     <p>{sale.quantities}</p>
                     <GrFormSubtract onClick={() => removeProductsInCart(sale)}/>
                 </div>
-                <p>Excluir</p>
+                <p className="btnDetele" onClick={() => removeAllPrductsSame(sale)}>Excluir</p>
             </div>
         </StyledCartProduct>
     )

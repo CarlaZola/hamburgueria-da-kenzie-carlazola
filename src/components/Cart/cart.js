@@ -33,6 +33,10 @@ const StyledCart = styled.section`
         height: 3rem;
     }
 
+    .btnClose{
+        cursor: pointer;
+    }
+
     .modalBody{
         height: 20.25rem;
         min-height: 9.875rem;

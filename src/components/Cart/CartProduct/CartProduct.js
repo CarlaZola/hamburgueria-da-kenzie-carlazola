@@ -31,7 +31,8 @@ const StyledCartProduct = styled.li`
     .contentQuantitites{
         display: flex;
         align-items: center;
-        gap: 0.25rem;
+        justify-content: center;
+        gap: 0.5rem;
         padding: 0.25rem;
         height: 2.125rem;
         border: 0.25px solid var(--color-grey-50);
@@ -43,6 +44,10 @@ const StyledCartProduct = styled.li`
         width: 4.0625rem;
         height: 4.0625rem;
         object-fit: contain;
+    }
+
+    .btnDetele{
+        cursor: pointer;
     }
 `
 

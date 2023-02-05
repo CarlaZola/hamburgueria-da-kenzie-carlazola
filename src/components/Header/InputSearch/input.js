@@ -41,6 +41,7 @@ const StyledInputSearch = styled.div`
             padding: .25rem;
             border-radius: .25rem;
             background-color: ${({theme}) => theme.colors.colorPrimary200};
+            cursor: pointer;
         }
     }
 

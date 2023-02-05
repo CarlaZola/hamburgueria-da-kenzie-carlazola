@@ -8,16 +8,18 @@ const StyledCart = styled.section`
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
+    padding-top: 2.5rem;
     background-color: rgba(0, 0, 0, 0.3);
 
     .modal{
         width: 95%;
         height: 80%;
         min-height: 50%;
-        max-height: 28.125rem;
+        max-height: 29.0625rem;
         background-color: ${({theme}) => theme.colors.colorGrey10};
         border-radius: 0.25rem 0.25rem 0 0;
+        
     }
 
     .modalHeader{

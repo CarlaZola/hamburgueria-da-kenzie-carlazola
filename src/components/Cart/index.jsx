@@ -1,9 +1,12 @@
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import StyledCart from "./cart"
 import ProductCart from "./CartProduct"
+import CartTotal from "./CartTotal"
+import useOutclick from "../../hooks"
 
 
-function Cart({currentSale,  setCart, cart, addProductsInCart, removeProductsInCart, itemTotal}){
+
+function Cart({currentSale,  setCart, cart, addProductsInCart, removeProductsInCart, itemTotal, totalCart}){
     
     useEffect(() => {
         if(cart === "aberto"){
@@ -15,9 +18,13 @@ function Cart({currentSale,  setCart, cart, addProductsInCart, removeProductsInC
          }
     }, [cart])
 
+    const ref =  useOutclick(() => {
+        setCart("fechado")
+    })
+
     return (
         <StyledCart>
-            <div className="modal">
+            <div className="modal" ref={ref}>
                 <div className="modalHeader">
                     <p>Carriho de compras</p>
                     <p onClick={() => setCart("fechado")}>X</p>
@@ -37,6 +44,7 @@ function Cart({currentSale,  setCart, cart, addProductsInCart, removeProductsInC
                           
                         )
                     }
+                    <CartTotal totalCart={totalCart}/>
                 </div>
             </div>
         </StyledCart>

@@ -83,7 +83,7 @@ function App() {
 				theme: `colored`,
 				autoClose: 1000,
 				position: "bottom-right",
-				hideProgressBar: false,
+				hideProgressBar: true,
 				
 			})
 		} else {
@@ -98,8 +98,16 @@ function App() {
 			setCurrentSale(response);
 			return toast("Quantidade alterada no carrinho!",{
 				position: "bottom-right",
-				autoClose: 4000,
+				autoClose: 1000,
+				
 			})
+		}
+	}
+
+	function changeQuantityInCart(product){
+		if(currentSale.map((sale) => product.id === sale.id)){
+			product.quantities = product.quantities + 1
+			setCurrentSale([...currentSale])
 		}
 	}
 
@@ -163,8 +171,9 @@ function App() {
 					totalItemsInCart={totalItemsInCart}
 					clearCart={clearCart}
 					ToastContainer={ToastContainer}
+					changeQuantityInCart={changeQuantityInCart}
 				/>
-				<ToastContainer hideProgressBar={false}/>
+				<ToastContainer/>
 			</ThemeProvider>
 		</>
 	);

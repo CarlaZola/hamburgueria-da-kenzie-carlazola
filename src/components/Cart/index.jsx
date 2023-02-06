@@ -6,7 +6,7 @@ import useOutclick from "../../hooks"
 
 
 
-function Cart({currentSale,  setCart, cart, addProductsInCart, removeProductsInCart, itemTotal, totalCart, removeAllPrductsSame, clearCart}){
+function Cart({currentSale,  setCart, cart, addProductsInCart, removeProductsInCart, itemTotal, totalCart, removeAllPrductsSame, clearCart, changeQuantityInCart}){
     
     useEffect(() => {
         if(cart === "aberto"){
@@ -37,7 +37,7 @@ function Cart({currentSale,  setCart, cart, addProductsInCart, removeProductsInC
                             <ul>
                                 {
                                     currentSale.map((sale) => {
-                                        return < ProductCart key={sale.id} sale={sale} addProductsInCart={addProductsInCart} removeProductsInCart={removeProductsInCart} itemTotal={itemTotal} removeAllPrductsSame={removeAllPrductsSame}/>
+                                        return < ProductCart key={sale.id} sale={sale} changeQuantityInCart={changeQuantityInCart} removeProductsInCart={removeProductsInCart} itemTotal={itemTotal} removeAllPrductsSame={removeAllPrductsSame}/>
                                     })
                                 }
                             </ul>

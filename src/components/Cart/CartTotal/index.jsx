@@ -1,8 +1,7 @@
 import StyledSectionTotalCart from "./cartTotal";
 
 function CartTotal({totalCart, clearCart}){
-
-    console.log(totalCart)
+    
     return(
         <StyledSectionTotalCart>
                 <div className="contentTotalValue">

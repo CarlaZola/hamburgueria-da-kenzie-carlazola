@@ -8,7 +8,7 @@ import Input from "../../components/Header/InputSearch";
 
 // import useResizeObserver from "@react-hook/resize-observer"
 
-function Dashboard({theme, setTheme, products, addProductsInCart, removeProductsInCart, removeAllPrductsSame, cart, setCart,currentSale, setFilteredItems, selectedItems, setSearch, search, itemTotal, totalCart, totalItemsInCart, clearCart}){
+function Dashboard({theme, setTheme, products, addProductsInCart, removeProductsInCart, removeAllPrductsSame, cart, setCart,currentSale, setFilteredItems, selectedItems, setSearch, search, itemTotal, totalCart, totalItemsInCart, clearCart, ToastContainer}){
 
     return(
      <StyledDashboard>
@@ -20,7 +20,7 @@ function Dashboard({theme, setTheme, products, addProductsInCart, removeProducts
             setFilteredItems={setFilteredItems}
             totalItemsInCart={totalItemsInCart}
         />
-
+        <ToastContainer/>
         <Input 
         search={search}
         setSearch={setSearch}

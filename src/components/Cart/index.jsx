@@ -26,7 +26,7 @@ function Cart({currentSale,  setCart, cart, addProductsInCart, removeProductsInC
         <StyledCart>
             <div className="modal" ref={ref}>
                 <div className="modalHeader">
-                    <p>Carriho de compras</p>
+                    <p>Carrinho de compras</p>
                     <p className="btnClose" onClick={() => setCart("fechado")}>X</p>
                 </div>
                 <div className="modalBody">

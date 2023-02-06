@@ -142,6 +142,7 @@ function App() {
 					itemTotal={itemTotal}
 					totalCart={totalCart}
 					totalItemsInCart={totalItemsInCart}
+					clearCart={clearCart}
 				/>
 			</ThemeProvider>
 		</>

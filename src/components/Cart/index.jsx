@@ -6,7 +6,7 @@ import useOutclick from "../../hooks"
 
 
 
-function Cart({currentSale,  setCart, cart, addProductsInCart, removeProductsInCart, itemTotal, totalCart, removeAllPrductsSame}){
+function Cart({currentSale,  setCart, cart, addProductsInCart, removeProductsInCart, itemTotal, totalCart, removeAllPrductsSame, clearCart}){
     
     useEffect(() => {
         if(cart === "aberto"){
@@ -44,7 +44,7 @@ function Cart({currentSale,  setCart, cart, addProductsInCart, removeProductsInC
                           
                         )
                     }
-                    <CartTotal totalCart={totalCart}/>
+                    <CartTotal totalCart={totalCart} clearCart={clearCart}/>
                 </div>
             </div>
         </StyledCart>

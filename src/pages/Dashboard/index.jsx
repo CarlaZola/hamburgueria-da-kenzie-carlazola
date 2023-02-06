@@ -8,7 +8,7 @@ import Input from "../../components/Header/InputSearch";
 
 // import useResizeObserver from "@react-hook/resize-observer"
 
-function Dashboard({theme, setTheme, products, addProductsInCart, removeProductsInCart, removeAllPrductsSame, cart, setCart,currentSale, setFilteredItems, selectedItems, setSearch, search, itemTotal, totalCart, totalItemsInCart}){
+function Dashboard({theme, setTheme, products, addProductsInCart, removeProductsInCart, removeAllPrductsSame, cart, setCart,currentSale, setFilteredItems, selectedItems, setSearch, search, itemTotal, totalCart, totalItemsInCart, clearCart}){
 
     return(
      <StyledDashboard>
@@ -39,6 +39,7 @@ function Dashboard({theme, setTheme, products, addProductsInCart, removeProducts
                             itemTotal={itemTotal}
                             totalCart={totalCart}
                             removeAllPrductsSame={removeAllPrductsSame}
+                            clearCart={clearCart}
                             />}
             <SectionProducts            
                 products={products}

@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 
 
-function RoutesMain({theme, setTheme, products, addProductsInCart, removeProductsInCart, removeAllPrductsSame, setCart, cart, currentSale, setFilteredItems, selectedItems, search, setSearch, itemTotal, totalCart, totalItemsInCart, clearCart, ToastContainer}){
+function RoutesMain({theme, setTheme, products, addProductsInCart, removeProductsInCart, removeAllPrductsSame, setCart, cart, currentSale, setFilteredItems, selectedItems, search, setSearch, itemTotal, totalCart, totalItemsInCart, clearCart, ToastContainer, changeQuantityInCart}){
 
     return(
         <Routes>
@@ -25,7 +25,8 @@ function RoutesMain({theme, setTheme, products, addProductsInCart, removeProduct
             totalCart={totalCart}
             totalItemsInCart={totalItemsInCart}
             clearCart={clearCart}     
-            ToastContainer={ToastContainer}      
+            ToastContainer={ToastContainer} 
+            changeQuantityInCart={changeQuantityInCart}     
              /> 
             }/>
             {/* <Route path="*" element={ <NotFound/> }/> */}

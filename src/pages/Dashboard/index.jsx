@@ -20,7 +20,7 @@ function Dashboard({theme, setTheme, products, addProductsInCart, removeProducts
             setFilteredItems={setFilteredItems}
             totalItemsInCart={totalItemsInCart}
         />
-        <ToastContainer/>
+        {/* <ToastContainer/> */}
         <Input 
         search={search}
         setSearch={setSearch}

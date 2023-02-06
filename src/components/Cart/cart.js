@@ -14,87 +14,62 @@ const StyledCart = styled.section`
 
     .modal{
         width: 95%;
-        height: 80%;
-        min-height: 50%;
-        max-height: 29.0625rem;
-        background-color: ${({theme}) => theme.colors.colorGrey10};
-        border-radius: 0.25rem 0.25rem 0 0;
-        
+        max-width: 31.25rem;
+        border-radius: .25rem;
     }
 
     .modalHeader{
         display: flex;
         justify-content: space-between;
-        padding: 13px 22px;
-        background-color: var(--color-primary);
+        align-items: center;
+        height: 3.375rem;
+        padding: .625rem 1.375rem;
+        background-color: ${({theme}) => theme.colors.colorPrimary200};    
+        border-radius: .25rem .25rem 0 0;
         color: var(--color-grey-0);
         font-weight: 700;
-        border-radius: 0.25rem 0.25rem 0 0;
-        height: 3rem;
-    }
 
-    .btnClose{
-        cursor: pointer;
+        .btnClose{
+            cursor: pointer;
+        }
     }
 
     .modalBody{
-        height: 20.25rem;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
         min-height: 9.875rem;
+        max-height: 22.5rem;
+        padding: .25rem 1rem;
+        background-color: var(--color-grey-5);
+        border-radius: 0 0 .25rem .25rem;
+
+        h3{
+            margin-top: 1rem;
+            text-align: center;
+        }
     }
 
     ul{
-        height: 240px;
-        width: 95%;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
         overflow-y: scroll;
-        max-height: 60%;
-        
+        max-height: 12.5rem;
     }
 
     ul::-webkit-scrollbar {
-        margin-top:1rem;
-        width: 0.625rem;
-        height: 0.25rem;
+        width: 7.5px;
     }
 
-        /* Track */
-        ul::-webkit-scrollbar-track {
-            background: var(--color-grey-20);
-            border-radius: .25rem;
-        }
-
-        /* Handle */
-        ul::-webkit-scrollbar-thumb {
-            background: var(--color-primary-50);
-            border-radius: .25rem;
-        }
-
-        /* Handle on hover */
-        ul::-webkit-scrollbar-thumb:hover {
-            background: var(--color-primary);
-        }
-
-    @media(min-width: 700px) {         
-        .modal{
-        width: 50%;
-        height: 70%;
-        top: -1.5625rem;      
-        }  
+    /* Track */
+    ul::-webkit-scrollbar-track {
+        background: var(--color-grey-20);
     }
 
-    @media(min-width: 900px){
-        left: unset;
-        right: 0;
-        
-        .modal{
-        width: 40%;
-        height: 80%;     
-        } 
+    /* Handle */
+    ul::-webkit-scrollbar-thumb {
+        background: ${({theme}) => theme.colors.colorPrimary200};
+        border-radius: 4px;
     }
    
 `

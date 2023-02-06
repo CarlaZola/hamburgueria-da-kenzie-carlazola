@@ -5,18 +5,25 @@ const StyledCartProduct = styled.li`
         justify-content: space-around;
         align-items: center;
         gap: .75rem;
-        width: 90%;
-        max-width: 95%;
+        width: 95%;
+        padding: .5rem 0;
         height: 90px;
         border-bottom: 2px solid ${({theme}) => theme.colors.colorPrimary200};
 
     .contentLeft{
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: .875rem;
         width: 100%;
         max-width: 10.625rem;
         
+    }
+    .contentNameAndProduct{
+        display: flex;
+        flex-direction: column;
+        gap: .25rem;
+        align-items: flex-start;
+       
     }
 
     .nameProduct{
@@ -26,6 +33,8 @@ const StyledCartProduct = styled.li`
 
     .priceProduct{
         font-size: var(--font1);
+        font-weight : 700;
+        color: var(--color-primary);
     }
 
     .contentQuantitites{
@@ -41,9 +50,27 @@ const StyledCartProduct = styled.li`
     }
 
     .imageProduct{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 4.0625rem;
         height: 4.0625rem;
         object-fit: contain;
+        background-color: var(--color-grey-20);
+        border-radius: .25rem;
+
+    }
+
+    .controlSale{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .25rem;
+    }
+
+    .btn{
+        cursor: pointer;
+        font-weight: 600;
     }
 
     .btnDetele{

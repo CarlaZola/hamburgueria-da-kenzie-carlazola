@@ -3,7 +3,7 @@ import StyledSectionProducts from "./productList"
 
 
 function SectionProducts({products, addProductsInCart, selectedItems}){
-  
+    
     return(
         <StyledSectionProducts>
             <ul className="list">

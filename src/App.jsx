@@ -4,6 +4,9 @@ import api from './services/api';
 import { ThemeProvider } from 'styled-components';
 import { ThemeLigth, ThemeDark } from './styles/theme';
 import Global from './styles/globalStyles';
+import NotFound from './pages/NotFound';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 
 const themePreference = JSON.parse(localStorage.getItem('@themePreference'));
@@ -47,8 +50,11 @@ function App() {
 				});
 
 				setProducts(responseIfQuantities);
-			} catch (error) {
-				console.log(error);
+			} catch(error) {
+				toast.error("Ops, parece que algo saiu errado! :(", {
+					theme: `colored`,
+					position: "top-center",
+				})
 			} finally {
 				setLoading(false);
 			}
@@ -122,10 +128,11 @@ function App() {
 	}
 
 	return (
+
 		<>		
 			<ThemeProvider theme={theme === 'ligth' ? ThemeLigth : ThemeDark}>
         	<Global />
-				<RoutesMain
+				<RoutesMain			
 					setTheme={setTheme}
 					products={products}
 					addProductsInCart={addProductsInCart}
@@ -143,7 +150,9 @@ function App() {
 					totalCart={totalCart}
 					totalItemsInCart={totalItemsInCart}
 					clearCart={clearCart}
+					ToastContainer={ToastContainer}
 				/>
+				
 			</ThemeProvider>
 		</>
 	);

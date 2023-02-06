@@ -152,7 +152,7 @@ function App() {
 					clearCart={clearCart}
 					ToastContainer={ToastContainer}
 				/>
-				
+				<ToastContainer/>
 			</ThemeProvider>
 		</>
 	);

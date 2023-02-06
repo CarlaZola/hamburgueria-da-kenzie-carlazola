@@ -65,6 +65,7 @@ const StyledCardProduct = styled.li`
         border-radius : .25rem;
         color: ${({theme}) => theme.colors.colorGrey0};
         cursor: pointer;
+        font-weight: 700;
 
         &:hover{
             opacity: 90%;

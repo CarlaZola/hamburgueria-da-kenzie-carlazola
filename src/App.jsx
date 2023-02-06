@@ -79,6 +79,13 @@ function App() {
 		if (!currentSale.some((currentProduct) => currentProduct.id === product.id)) {
 			product.quantities = 1;
 			setCurrentSale([...currentSale, product]);
+			return toast.success("Produto adicionado ao carrinho!", {
+				theme: `colored`,
+				autoClose: 1000,
+				position: "bottom-right",
+				hideProgressBar: false,
+				
+			})
 		} else {
 			const response = currentSale.map((current) => {
 				if (current.id === product.id) {
@@ -87,7 +94,12 @@ function App() {
 				}
 				return current;
 			});
+			
 			setCurrentSale(response);
+			return toast("Quantidade alterada no carrinho!",{
+				position: "bottom-right",
+				autoClose: 4000,
+			})
 		}
 	}
 
@@ -152,7 +164,7 @@ function App() {
 					clearCart={clearCart}
 					ToastContainer={ToastContainer}
 				/>
-				<ToastContainer/>
+				<ToastContainer hideProgressBar={false}/>
 			</ThemeProvider>
 		</>
 	);
